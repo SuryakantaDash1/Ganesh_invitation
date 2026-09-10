@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Ganesh Chaturthi — An Invitation</title>
+<meta name="description" content="Ganpati Bappa Morya! You and your family are invited for darshan, aarti and prasad at our club on 14 September 2026.">
+<meta name="theme-color" content="#f3e3d3">
+
+<!-- Share preview (WhatsApp / social). Set og:url and og:image to your hosted URL. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Happy Ganesh Chaturthi — An Invitation">
+<meta property="og:description" content="Darshan, aarti and prasad at our club — 14 September 2026.">
+<meta property="og:image" content="assets/garland.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mukta:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="frame" class="frame">
+
+  <!-- 01 Hero -->
+  <section class="hero" aria-label="Ganpati Bappa Morya">
+    <video id="heroVideo" class="hero__video"
+           src="uploads/Mouse_looking_at_rotating_Ganpati_202609051306.mp4"
+           autoplay loop muted playsinline aria-hidden="true"></video>
+    <div class="hero__scrim"></div>
+    <div id="heroText" class="hero__text">
+      <p class="hero__mantra">ଜୟ ଶ୍ରୀ ଗଣେଶ</p>
+      <p class="hero__roman">Jai Shri Ganesh</p>
+      <div class="hero__rule"></div>
+      <p class="hero__cue">Scroll to open the invitation</p>
+      <p class="hero__arrow" aria-hidden="true">↓</p>
+    </div>
+  </section>
+
+  <!-- 02 Invitation -->
+  <section id="sec2" class="scene scene--invite">
+    <div class="scene__stage stage--invite">
+      <span class="spark spark--1" aria-hidden="true"></span>
+      <span class="spark spark--2" aria-hidden="true"></span>
+      <span class="spark spark--3" aria-hidden="true"></span>
+
+      <div id="garlandL" class="garland garland--left">
+        <img src="assets/garland.png" alt="Jasmine garlands">
+      </div>
+      <div id="garlandR" class="garland garland--right" aria-hidden="true">
+        <img src="assets/garland.png" alt="">
+      </div>
+
+      <div id="bell1" class="bell bell--1">
+        <div class="bell__swing bell__swing--slow-a">
+          <img src="assets/bellLong2.png" alt="Temple bell">
+        </div>
+      </div>
+      <div id="bell2" class="bell bell--2">
+        <div class="bell__swing bell__swing--fast-a">
+          <img src="uploads/bell.png" alt="Temple bell">
+        </div>
+      </div>
+      <div id="bell3" class="bell bell--3">
+        <div class="bell__swing bell__swing--fast-b">
+          <img src="uploads/bell.png" alt="Temple bell">
+        </div>
+      </div>
+      <div id="bell4" class="bell bell--4">
+        <div class="bell__swing bell__swing--slow-b">
+          <img src="assets/bellLong2.png" alt="Temple bell">
+        </div>
+      </div>
+
+      <img id="diyaL" class="diya diya--left" src="assets/lamp2.png" alt="Brass oil lamp">
+      <img id="diyaR" class="diya diya--right" src="assets/lamp2.png" alt="Brass oil lamp">
+
+      <div id="invite" class="invite">
+        <p class="invite__salutation">॥ ଶ୍ରୀ ଗଣେଶାୟ ନମଃ ॥</p>
+        <div class="invite__stem"></div>
+        <h1 class="invite__title">Happy Ganesh Chaturthi</h1>
+        <p id="guestLine" class="invite__guest" hidden aria-live="polite"></p>
+        <p class="invite__body">We invite you and your family to join us for darshan, aarti and prasad as we celebrate Ganeshotsav together at our club.</p>
+        <p class="invite__odia">With Family &amp; Love, An Invitation</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Details -->
+  <section id="sec3" class="scene scene--details">
+    <div class="scene__stage stage--details">
+
+      <div id="petals" class="petals" aria-hidden="true">
+        <span class="petal petal--1"></span>
+        <span class="petal petal--2"></span>
+        <span class="petal petal--3"></span>
+        <span class="petal petal--4"></span>
+      </div>
+
+      <div id="cardRegion" class="card-region">
+        <div id="card" class="card">
+          <header class="card__head">
+            <p class="card__eyebrow">Ganeshotsav 2026</p>
+            <h2 class="card__title">Darshan &amp; Aarti</h2>
+          </header>
+
+          <div class="card__panel">
+            <div class="field">
+              <p class="field__label">Days</p>
+              <p class="field__value">14 September 2026</p>
+              <p class="field__note">Sunday · Community Ganesh Puja</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="field-row">
+              <div class="field">
+                <p class="field__label">Morning Aarti</p>
+                <p class="field__value field__value--sm">10:00 AM</p>
+              </div>
+              <div class="field-row__split"></div>
+              <div class="field">
+                <p class="field__label">Evening Aarti</p>
+                <p class="field__value field__value--sm">7:30 PM</p>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="field">
+              <p class="field__label">Venue</p>
+              <p class="field__address">Kundapur, Near Pump House,<br>754246</p>
+            </div>
+
+            <div class="map-embed">
+              <iframe
+                class="map-embed__frame"
+                src="https://www.google.com/maps?ll=20.5743819,86.6923649&z=16&output=embed"
+                title="Map to Kundapur Village"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div class="map-embed__vignette" aria-hidden="true"></div>
+              <span class="map-embed__pin" aria-hidden="true">📍</span>
+              <a class="map-embed__chip" href="https://maps.app.goo.gl/QvQeZroV7sdXSjsD8?g_st=ac" target="_blank" rel="noopener">Open in Maps ↗</a>
+            </div>
+
+            <div class="field">
+              <p class="field__label">Contact</p>
+              <a class="field__value field__value--sm field__contact" href="tel:+918658379411">+91 86583 79411</a>
+            </div>
+          </div>
+
+          <p class="card__signoff">ଓଁ ନମୋ ଗଣପତୟେ ନମଃ</p>
+        </div>
+      </div>
+
+      <div class="mouse-strip">
+        <div id="bubble" class="bubble">
+          <div class="bubble__box">
+            <p class="bubble__line">Come on! I'll show you the way</p>
+            <p class="bubble__hint">Tap me for directions</p>
+          </div>
+          <div class="bubble__tail"></div>
+        </div>
+        <div id="mouse" class="mouse">
+          <button id="mapBtn" type="button" class="mouse__btn" aria-label="Open directions in Google Maps">
+            <img src="uploads/Mouse.png" alt="Bappa's mushak">
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- Hidden route: open index.html#generate to build a personalized guest link.
+     Not linked from the invitation itself. -->
+<div id="generator" class="generator" hidden>
+  <div class="generator__card">
+    <p class="generator__eyebrow">Ganeshotsav 2026</p>
+    <h1 class="generator__title">Personalize an Invite</h1>
+    <p class="generator__sub">Pick a title and name, then copy the link and paste it into WhatsApp for that guest. Their name animates onto the invitation when they open it.</p>
+
+    <div class="generator__row">
+      <div class="generator__field">
+        <label class="generator__label" for="genTitle">Title</label>
+        <select id="genTitle" class="generator__select">
+          <option value="">(none)</option>
+          <option value="Mr.">Mr.</option>
+          <option value="Mrs." selected>Mrs.</option>
+          <option value="Ms.">Ms.</option>
+          <option value="Dr.">Dr.</option>
+          <option value="Shri">Shri</option>
+          <option value="Smt.">Smt.</option>
+          <option value="Kum.">Kum.</option>
+          <option value="Master">Master</option>
+          <option value="Baby">Baby</option>
+        </select>
+      </div>
+      <div class="generator__field generator__field--grow">
+        <label class="generator__label" for="genName">Name</label>
+        <input id="genName" class="generator__input" type="text" placeholder="Priya Sharma" autocomplete="off">
+      </div>
+    </div>
+
+    <p class="generator__preview" id="genPreview">Dear Mrs. …,</p>
+
+    <button id="genBtn" type="button" class="generator__btn">Generate Link</button>
+
+    <div id="genResult" class="generator__result">
+      <label class="generator__label">Shareable Link</label>
+      <div class="generator__link-row">
+        <input id="genLinkOut" class="generator__link" type="text" readonly>
+        <button id="genCopyBtn" type="button" class="generator__copy">Copy</button>
+      </div>
+      <a id="genPreviewLink" class="generator__preview-link" href="#" target="_blank" rel="noopener">Open this link to preview →</a>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
