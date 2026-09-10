@@ -18,8 +18,7 @@
    'bell1', 'bell2', 'bell3', 'bell4', 'diyaL', 'diyaR',
    'invite', 'guestLine', 'card', 'cardRegion', 'mouse', 'bubble',
    'petals', 'mapBtn', 'frame', 'generator',
-   'genTitle', 'genName', 'genPreview', 'genBtn', 'genResult',
-   'genLinkOut', 'genCopyBtn', 'genPreviewLink'].forEach(function (id) {
+   'genTitle', 'genName', 'genPreview', 'genBtn'].forEach(function (id) {
     el[id] = document.getElementById(id);
   });
 
@@ -218,46 +217,38 @@
     el.genPreview.textContent = c ? ('Dear ' + c + ',') : 'Dear …,';
   }
 
-  function generateGuestLink() {
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    var temp = document.createElement('textarea');
+    temp.value = text;
+    temp.style.position = 'fixed';
+    temp.style.opacity = '0';
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand('copy');
+    document.body.removeChild(temp);
+    return Promise.resolve();
+  }
+
+  function generateAndCopyLink() {
     var c = composedGuestName();
     if (!c) {
       if (el.genName) el.genName.focus();
       return;
     }
     var url = baseInviteUrl() + '?to=' + encodeURIComponent(c);
-    if (el.genLinkOut) el.genLinkOut.value = url;
-    if (el.genPreviewLink) el.genPreviewLink.href = url;
-    if (el.genResult) el.genResult.classList.add('is-visible');
-    if (el.genCopyBtn) {
-      el.genCopyBtn.textContent = 'Copy';
-      el.genCopyBtn.classList.remove('is-done');
-    }
-  }
-
-  function copyGuestLink() {
-    if (!el.genLinkOut) return;
-    var text = el.genLinkOut.value;
-    if (!text) return;
-    function done() {
-      if (!el.genCopyBtn) return;
-      el.genCopyBtn.textContent = 'Copied!';
-      el.genCopyBtn.classList.add('is-done');
+    var btn = el.genBtn;
+    copyText(url).then(function () {
+      if (!btn) return;
+      btn.textContent = 'Copied! Paste it into WhatsApp';
+      btn.classList.add('is-done');
       setTimeout(function () {
-        el.genCopyBtn.textContent = 'Copy';
-        el.genCopyBtn.classList.remove('is-done');
-      }, 1600);
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, function () {
-        el.genLinkOut.select();
-        document.execCommand('copy');
-        done();
-      });
-    } else {
-      el.genLinkOut.select();
-      document.execCommand('copy');
-      done();
-    }
+        btn.textContent = 'Generate Link';
+        btn.classList.remove('is-done');
+      }, 2200);
+    });
   }
 
   function startGenerator() {
@@ -268,11 +259,10 @@
     if (el.genName) {
       el.genName.addEventListener('input', updateGenPreview);
       el.genName.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') generateGuestLink();
+        if (e.key === 'Enter') generateAndCopyLink();
       });
     }
-    if (el.genBtn) el.genBtn.addEventListener('click', generateGuestLink);
-    if (el.genCopyBtn) el.genCopyBtn.addEventListener('click', copyGuestLink);
+    if (el.genBtn) el.genBtn.addEventListener('click', generateAndCopyLink);
 
     updateGenPreview();
   }
