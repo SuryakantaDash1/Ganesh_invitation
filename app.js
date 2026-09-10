@@ -285,7 +285,11 @@
       if (!looping) loop();
     });
 
-    beatId = setInterval(tick, 100);
+    /* The rAF loop already redraws frame() every animation frame while the
+       page is visible; this interval only exists as a low-frequency safety
+       net for autoplay silently dropping, so it doesn't need to match that
+       rate. */
+    beatId = setInterval(kickVideo, 1500);
     loop();
   }
 
