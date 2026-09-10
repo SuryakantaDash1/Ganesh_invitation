@@ -585,6 +585,12 @@ p, h1, h2 { margin: 0; }
   box-sizing: border-box;
   background: linear-gradient(180deg, #fbeadb 0%, #f6e0cd 100%);
 }
+/* The [hidden] attribute and this class carry equal specificity; without
+   this, whichever is declared later in the stylesheet wins, which made the
+   generator render even while hidden. This makes [hidden] always win. */
+.generator[hidden] {
+  display: none;
+}
 .generator__card {
   width: 100%;
   max-width: 460px;
