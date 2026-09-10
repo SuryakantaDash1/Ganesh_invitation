@@ -190,11 +190,19 @@
   }
 
   /* --- Generator route --------------------------------------
-     index.html#generate swaps the whole invitation out for a small
-     tool that builds a personalized guest link (?to=Mrs.%20Name).
+     /invite (rewritten to this same page by vercel.json) or the
+     #generate hash (works with no server rewrite, e.g. local dev)
+     swaps the whole invitation out for a small tool that builds a
+     personalized guest link pointing back at the site root.
      Never linked from the invitation itself. */
   function isGeneratorRoute() {
-    return window.location.hash === '#generate';
+    if (window.location.hash === '#generate') return true;
+    var path = window.location.pathname.replace(/\/+$/, '') || '/';
+    return path === '/invite';
+  }
+
+  function baseInviteUrl() {
+    return window.location.origin + '/';
   }
 
   function composedGuestName() {
@@ -216,7 +224,7 @@
       if (el.genName) el.genName.focus();
       return;
     }
-    var url = window.location.origin + window.location.pathname + '?to=' + encodeURIComponent(c);
+    var url = baseInviteUrl() + '?to=' + encodeURIComponent(c);
     if (el.genLinkOut) el.genLinkOut.value = url;
     if (el.genPreviewLink) el.genPreviewLink.href = url;
     if (el.genResult) el.genResult.classList.add('is-visible');
